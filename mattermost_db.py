@@ -3,7 +3,7 @@
 """
 # mattermoat의 PostgresDB의 mattermost database 제어
 # 현재 셋팅된 postgres db는 로컬에서만 실행가능하므로,
-# 이파일을 192.168.10.133에 접속하여 실행시켜야함.
+# 이파일을 매터모스트 서버에 접속하여 실행시켜야함.
 # 실행방법
 #	$ python mattermost_db.py           # 전체 유저 조회
 #	$ python mattermost_db.py hulk      # 하나의 유저 조회
@@ -22,10 +22,10 @@ def selectUser(id):
 		sql += """ where username = %s"""
 
 	try:
-		conn = psycopg2.connect(user="mmuser",
-					password="Fourth4th!",
-					host="127.0.0.1",
-					port="5432",
+		conn = psycopg2.connect(user="", #user id
+					password="", #password
+					host="", #host
+					port="", #port
 					database="mattermost"
 		)
 		cur = conn.cursor()
@@ -58,10 +58,10 @@ def updateUserDept(id, dept):
 	"""
 	sql = """update users set position = %s, nickname = %s where username = %s"""
 	try:
-		conn = psycopg2.connect(user="mmuser",
-					password="Fourth4th!",
-					host="127.0.0.1",
-					port="5432",
+		conn = psycopg2.connect(user="", #user
+					password="", #password
+					host="", #host
+					port="", #port
 					database="mattermost"
 		)
 		cur = conn.cursor()
